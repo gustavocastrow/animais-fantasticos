@@ -156,6 +156,7 @@ export default class SlideNav extends Slide {
     super(slide, wrapper);
     this.bindControlEvents();
   }
+
   addArrow(prev, next) {
     this.prevElement = document.querySelector(prev);
     this.nextElement = document.querySelector(next);
@@ -170,7 +171,6 @@ export default class SlideNav extends Slide {
   createControl() {
     const control = document.createElement("ul");
     control.dataset.control = "slide";
-
     this.slideArray.forEach((item, index) => {
       control.innerHTML += `<li><a href="#slide${index + 1}">${
         index + 1
@@ -199,8 +199,7 @@ export default class SlideNav extends Slide {
     this.control =
       document.querySelector(customControl) || this.createControl();
     this.controlArray = [...this.control.children];
-    console.log(this.control);
-    console.log(this.controlArray);
+
     this.activeControlItem();
     this.controlArray.forEach(this.eventControl);
   }

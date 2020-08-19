@@ -1,4 +1,4 @@
-export default class initAccordion {
+export default class Accordion {
   constructor(list) {
     this.accordionList = document.querySelectorAll(list);
     this.activeClass = "ativo";
@@ -16,7 +16,7 @@ export default class initAccordion {
     });
   }
 
-  // iniciar funcao
+  // iniciar funÃ§Ã£o
   init() {
     if (this.accordionList.length) {
       // ativar primeiro item

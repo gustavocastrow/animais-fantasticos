@@ -5,10 +5,10 @@ export default class ScrollAnima {
     this.sections = document.querySelectorAll(sections);
     this.windowMetade = window.innerHeight * 0.6;
 
-    this.checkDistance = debounce(this.checkDistance.bind(this), 200);
+    this.checkDistance = debounce(this.checkDistance.bind(this), 50);
   }
 
-  // Pega a distancia de cada item em relaÃ§Ã£o
+  // Pega a distÃ¢ncia de cada item em relaÃ§Ã£o
   // ao topo do site
   getDistance() {
     this.distance = [...this.sections].map((section) => {
@@ -20,7 +20,7 @@ export default class ScrollAnima {
     });
   }
 
-  // Verifica a distancia em cada objeto
+  // Verifica a distÃ¢ncia em cada objeto
   // em relaÃ§Ã£o ao scroll do site
   checkDistance() {
     this.distance.forEach((item) => {

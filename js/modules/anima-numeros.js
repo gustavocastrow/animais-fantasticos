@@ -4,12 +4,12 @@ export default class AnimaNumeros {
     this.observerTarget = document.querySelector(observerTarget);
     this.observerClass = observerClass;
 
-    // Binda o this do objeto ao callback da mutacao;
+    // bind o this do objeto ao callback da mutaÃ§Ã£o
     this.handleMutation = this.handleMutation.bind(this);
   }
 
-  // Recebe um elemento do DOM, com numero em seu texto
-  // incrementa a aprtir de 0 ate o numero final
+  // Recebe um elemento do dom, com nÃºmero em seu texto
+  // incrementa a partir de 0 atÃ© o nÃºmero final
   static incrementarNumero(numero) {
     const total = +numero.innerText;
     const incremento = Math.floor(total / 100);
@@ -24,14 +24,15 @@ export default class AnimaNumeros {
     }, 25 * Math.random());
   }
 
-  // Ativa incrementar para cada numero selecionado do dom
+  // Ativa incrementar nÃºmero para cada
+  // nÃºmero selecionado do dom
   animaNumeros() {
     this.numeros.forEach((numero) =>
       this.constructor.incrementarNumero(numero)
     );
   }
 
-  // Funcao que ocorre quando a mutacao ocorrer;
+  // FunÃ§Ã£o que ocorre quando a mutaÃ§Ãµes ocorrer
   handleMutation(mutation) {
     if (mutation[0].target.classList.contains(this.observerClass)) {
       this.observer.disconnect();
@@ -39,8 +40,8 @@ export default class AnimaNumeros {
     }
   }
 
-  // Adiciona o MutationObserver para verificar quando a classe ativo
-  // e adicionada ao elemento target
+  // Adiciona o MutationObserver para verificar
+  // quanto a classe ativo Ã© adiciona ao element target
   addMutationObserver() {
     this.observer = new MutationObserver(this.handleMutation);
     this.observer.observe(this.observerTarget, { attributes: true });
@@ -50,7 +51,6 @@ export default class AnimaNumeros {
     if (this.numeros.length && this.observerTarget) {
       this.addMutationObserver();
     }
-    this.addMutationObserver();
     return this;
   }
 }
