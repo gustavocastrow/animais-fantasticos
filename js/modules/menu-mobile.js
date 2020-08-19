@@ -5,14 +5,17 @@ export default class MenuMobile {
     this.menuButton = document.querySelector(menuButton);
     this.menuList = document.querySelector(menuList);
     this.activeClass = "active";
-    // Define touchstart e click, argumentos parao de events caso o usuario nao defina
+
+    // define touchstart e click como argumento padrÃ£o
+    // de events caso o usuÃ¡rio nÃ£o define
     if (events === undefined) this.events = ["touchstart", "click"];
     else this.events = events;
 
     this.openMenu = this.openMenu.bind(this);
   }
 
-  openMenu() {
+  openMenu(event) {
+    event.preventDefault();
     this.menuList.classList.add(this.activeClass);
     this.menuButton.classList.add(this.activeClass);
     outsideClick(this.menuList, this.events, () => {
